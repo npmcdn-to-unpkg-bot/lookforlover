@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="/kaifang/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/kaifang/lib/angular-1.5.5/angular.min.js"></script>
+    <script src="/kaifang/js/search.js"></script>
+    <title>❤寻找爱人❤</title>
+    <base href="/kaifang/html/">
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/kaifang/html/index.html">寻找爱人</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="" class="form-control"  ng-model="name">
+                    </div>
+                    <button type="submit"  ng-click="querykaifang(0)" class="btn btn-success">查找❤</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div ng-show="showflag">
+        总数：{{total}}<br>
+        <div ng-show="total">
+            查询结果<br>
+            <table>
+                <tr>
+                    <td>地址</td><td>生日</td><td>Email</td><td>电话</td>
+                </tr>
+                <tr ng-repeat="info in infolist">
+                    <td>{{info.Address}}</td><td>{{info.Birthday}}</td><td>{{info.EMail}}</td><td>{{info.Mobile}}</td>
+                </tr>
+            </table>
+
+            <a href="" ng-click="prepage()">上一页</a>&nbsp&nbsp&nbsp&nbsp
+            共{{pagecount}}页&nbsp&nbsp&nbsp&nbsp当前第{{nowpage}}页&nbsp&nbsp&nbsp&nbsp
+            <a href=""  ng-click="nextpage()">下一页</a> <br>
+        </div>
+    </div>
+</div>
+</body>
+</html>
